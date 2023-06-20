@@ -15,13 +15,19 @@ const seattle = {
     avgCookiesPerCust: 6.3,
     customersEachHour: [],
     cookiesEachHour: [], 
-    totalDailyCookies: 0.
+    totalDailyCookies: 0,
     calcCustomersEachHour: function () {
         for (let i = 0 ; i < hours.length; i++) {
-this.customersEachHour.push(randomNum(this.minCustPerHour ,
-    this.maxCustPerHour));
+this.customersEachHour.push(randomNum(this.minCustPerHour , this.maxCustPerHour));
         }
-
+    },
+    calcCookiesEachHour: function () {
+      for (let i = 0; i < hours.length; i++) {
+        const oneHour = Math.ceil(this.customersEachHour[i] * this.avgCookiesPerHour);
+        this.cookiesEachHour.push(oneHour);
+        this.totalDailyCookies += oneHour;
+      }
+    },
     render: function(){
     const article = document.createElement("article");
     container.appendChild(article);
@@ -33,8 +39,15 @@ this.customersEachHour.push(randomNum(this.minCustPerHour ,
     const ul = document.createElement("ul");
     article.appendChild(ul);
 
-
-    }
-}
-
-}
+    for (let i = 0; i < hours.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = `${hours[i]}: ${this.cookiesEachHour[i]} cookies`;
+        ul.appendChild(li);
+      }
+      const li = document.createElement("li");
+      li.textContent = `Total Cookies: ${this.totalDailyCookies}`;
+      ul.appendChild(li);
+    },
+  };
+  
+  
