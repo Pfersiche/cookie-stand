@@ -131,7 +131,9 @@ storeTable.appendChild(tr);
 }
 hourlyTotals();
 
-for (let newStoreForm = );
+for (let k = 0; < newStoreForm.length; k++){
+    
+}
 
 
 
