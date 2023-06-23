@@ -1,8 +1,26 @@
 h2 {
+    padding-top: 5px;
+    padding-bottom: 40px;
+    padding-left: 50px;
     color: teal;
     font-family: helvetica;
+    font-size: 5rem;
 }
 
+img.logo {
+    display: block;
+    margin-left: auto;
+     margin-right: auto;
+    height: 100px;
+    width: 200px;
+}
+
+div.logo1 {
+    position: sticky; 
+    top: 0;
+    
+}
 * {
     background-color: paleturquoise;
 }
+
